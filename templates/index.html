@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h2>Stock Portfolio of {{ person }}</h2><br><br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Account Balance</th>
+                <th>Total Value of Stocks and Cash</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ data[0]["cash"] | usd }}</td>
+                <td>{{ data[0]["assets"] | usd }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Number of Shares</th>
+                <th>Current Share Price</th>
+                <th>Total Amount Owned</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in portfolio: %}
+                <tr>
+                    <td>{{ row.stock }}</td>
+                    <td>{{ row.shares }}</td>
+                    <td>{{ row.share_price | usd}}</td>
+                    <td>{{ row.value | usd}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

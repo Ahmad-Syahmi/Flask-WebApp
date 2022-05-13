@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <h2 style="text-align: centered">Wonderful Choice {{ person }}!</h2><br><br>
+    <h6>{{ qoute["name"] }}, {{ qoute["symbol"] }} is currently valued at {{ qoute["price"] | usd }}</h6>
+{% endblock %}
